@@ -7,13 +7,15 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import {AppMatModule} from '../app.mat.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import {MatModule} from '../mat.module';
 
 @NgModule({
   imports: [
     CommonModule,
     AuthRoutingModule,
     AppMatModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatModule
   ],
   declarations: [AuthComponent, LoginComponent, RegisterComponent, ForgotComponent]
 })

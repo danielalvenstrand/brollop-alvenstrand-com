@@ -1,15 +1,31 @@
-<p>
-  register works!
-</p>
-<p>
-  register works!
-</p>
-<p>
-  register works!
-</p>
-<p>
-  register works!
-</p>
-<p>
-  register works!
-</p>
+<form [formGroup]="credentials" (ngSubmit)="register()">
+  <div class="row center-xs">
+    <h2 class="col-xs-12">Jag kommer!</h2>
+  </div>
+  <div class="row center-xs">
+    <mat-form-field class="col-xs-12">
+      <input matInput type="text" formControlName="name" placeholder="Namn" required>
+    </mat-form-field>
+    <mat-form-field class="col-xs-12">
+      <input matInput type="text" formControlName="allergies" placeholder="Allergier" required>
+    </mat-form-field>
+    <mat-form-field class="col-xs-12">
+      <input matInput type="text" formControlName="alcohol" placeholder="Alcohol" required>
+    </mat-form-field>
+    <mat-form-field class="col-xs-12">
+      <input matInput type="text" formControlName="vegetarian" placeholder="Vegetarian" required>
+    </mat-form-field>
+    <mat-form-field class="col-xs-12">
+      <input matInput type="text" formControlName="message" placeholder="Meddelande">
+    </mat-form-field>
+    <mat-form-field class="col-xs-12">
+      <input matInput type="email" formControlName="email" placeholder="Epost" required>
+    </mat-form-field>
+    <mat-form-field class="col-xs-12">
+      <input matInput type="password" formControlName="password" placeholder="Lösenord" required>
+    </mat-form-field>
+  </div>
+  <div class="row center-xs">
+    <button mat-button [disabled]="!credentials.valid">Svara</button>
+  </div>
+</form>
