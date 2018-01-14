@@ -1,0 +1,15 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$brollop-primary: mat-palette($mat-indigo);
+$brollop-accent:  mat-palette($mat-pink, A200, A100, A400);
+
+
+$brollop-warn:    mat-palette($mat-red);
+
+
+$brollop-theme: mat-light-theme($brollop-primary, $brollop-accent, $brollop-warn);
+
+
+@include angular-material-theme($brollop-theme);

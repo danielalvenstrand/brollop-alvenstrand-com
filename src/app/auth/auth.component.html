@@ -1,0 +1,32 @@
+<div class="page">
+  <header>
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <nav>
+          <a routerLink="/signin" routerLinkActive="active">Logga in</a>
+          <a routerLink="/signup" routerLinkActive="active">Skapa konto</a>
+          <a routerLink="/forgot" routerLinkActive="active">Minns ej lösen?</a>
+        </nav>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </header>
+
+  <main id="auth">
+    <div class="video-container">
+      <img class="poster" src="assets/videos/Nature-Sunset/snapshots/Nature-Sunset.jpg"  />
+      <video class="fillWidth" autobuffer autoplay muted loop>
+        <source src="assets/videos/Nature-Sunset/MP4/Nature-Sunset.mp4" type="video/mp4"/>
+        <source src="assets/videos/Nature-Sunset/WEBM/Nature-Sunset.webm" type="video/webm" />
+        <source src="assets/videos/Nature-Sunset/OGV/Nature-Sunset.ogv" type="video/ogg" />
+        Your browser does not support the video tag. I suggest you upgrade your browser.
+      </video>
+    </div>
+      <article class="row center-xs">
+        <section class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+          <div class="box" id="auth-content" #authContent [@routerTransition]="getState(o)">
+            <router-outlet #o="outlet"></router-outlet>
+          </div>
+        </section>
+      </article>
+  </main>
+</div>

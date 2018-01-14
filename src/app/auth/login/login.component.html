@@ -1,0 +1,18 @@
+<form [formGroup]="credentials" (ngSubmit)="login()">
+  <div class="row center-xs">
+    <h2 class="col-xs-12">Logga in</h2>
+  </div>
+  <div class="row center-xs">
+    <mat-form-field class="col-xs-12">
+      <input matInput type="email" formControlName="email" placeholder="Epost">
+    </mat-form-field>
+  </div>
+  <div class="row center-xs">
+    <mat-form-field class="col-xs-12">
+      <input matInput type="password" formControlName="password" placeholder="Lösenord">
+    </mat-form-field>
+  </div>
+  <div class="row center-xs">
+    <button mat-button [disabled]="!credentials.valid">Logga in</button>
+  </div>
+</form>
