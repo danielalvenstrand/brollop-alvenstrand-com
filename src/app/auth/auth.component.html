@@ -4,8 +4,8 @@
       <mat-toolbar-row>
         <nav>
           <a routerLink="/signin" routerLinkActive="active">Logga in</a>
-          <a routerLink="/signup" routerLinkActive="active">Svara: Jag kommer!</a>
-          <a routerLink="/forgot" routerLinkActive="active">Minns ej lösenordet?</a>
+          <a routerLink="/signup" routerLinkActive="active">Svara</a>
+          <a routerLink="/forgot" routerLinkActive="active">Återställ lösenord</a>
         </nav>
       </mat-toolbar-row>
     </mat-toolbar>
@@ -24,9 +24,47 @@
       <article class="row center-xs">
         <section class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
           <div class="box" id="auth-content" #authContent [@routerTransition]="getState(o)">
-            <router-outlet #o="outlet"></router-outlet>
+            <router-outlet #o="outlet" (activate)="bindResize($event)"></router-outlet>
           </div>
         </section>
       </article>
   </main>
+</div>
+
+<div id="password-protect" [@fadeOutSlow] *ngIf="protected">
+<div class="row center-xs" [@keypadTransition] *ngIf="protected">
+  <div class="col-xs-4 digit">
+    <button mat-raised-button color="accent" (click)="digit(1)" #one>1</button>
+  </div>
+  <div class="col-xs-4 digit">
+    <button mat-raised-button color="accent" (click)="digit(2)" #two>2</button>
+  </div>
+  <div class="col-xs-4 digit">
+    <button mat-raised-button color="accent" (click)="digit(3)" #three>3</button>
+  </div>
+  <div class="col-xs-4 digit">
+    <button mat-raised-button color="accent" (click)="digit(4)" #four>4</button>
+  </div>
+  <div class="col-xs-4 digit">
+    <button mat-raised-button color="accent" (click)="digit(5)" #five>5</button>
+  </div>
+  <div class="col-xs-4 digit">
+    <button mat-raised-button color="accent" (click)="digit(6)" #six>6</button>
+  </div>
+  <div class="col-xs-4 digit">
+    <button mat-raised-button color="accent" (click)="digit(7)" #seven>7</button>
+  </div>
+  <div class="col-xs-4 digit">
+    <button mat-raised-button color="accent" (click)="digit(8)" #eight>8</button>
+  </div>
+  <div class="col-xs-4 digit">
+    <button mat-raised-button color="accent" (click)="digit(9)" #nine>9</button>
+  </div>
+  <div class="col-xs-12 digit">
+    <button mat-raised-button color="accent" (click)="digit(0)" #zero>0</button>
+  </div>
+</div>
+  <div id="key-pressed" *ngIf="key !== ''" [@fadeOutSlow]>
+    {{key}}
+  </div>
 </div>

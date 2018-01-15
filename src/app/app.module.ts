@@ -9,6 +9,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CognitoUtilService} from './services/cognito-util.service';
 import {AuthService} from './services/auth.service';
 import {MatModule} from './mat.module';
+import {DashboardModule} from './dashboard/dashboard.module';
+import {UserService} from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import {MatModule} from './mat.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     AuthModule,
+    DashboardModule,
     MatModule
   ],
   providers: [
     CognitoUtilService,
-    AuthService
+    AuthService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

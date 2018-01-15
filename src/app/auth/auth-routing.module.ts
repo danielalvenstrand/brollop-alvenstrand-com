@@ -4,14 +4,14 @@ import {AuthComponent} from './auth.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {ForgotComponent} from './forgot/forgot.component';
-import {AuthGuard} from '../auth.guard';
 import {PageNotFoundComponent} from '../page-not-found/page-not-found.component';
+import {NotAuthGuard} from '../not-auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: AuthComponent,
-    canActivate: [AuthGuard],
+    canActivate: [NotAuthGuard],
     children: [
       {
         path: 'signin',
@@ -36,6 +36,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AuthGuard]
+  providers: [NotAuthGuard]
 })
 export class AuthRoutingModule { }

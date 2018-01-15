@@ -1,0 +1,14 @@
+@import "../styles.scss";
+
+#under-construction {
+  width: 100vw;
+  background-color: map-get($colors, danger);
+  text-align: center;
+  pointer-events: none;
+  h3 {
+    margin: 0;
+    padding: 0.25em;
+    color: white;
+    font-size: 0.75em;
+  }
+}

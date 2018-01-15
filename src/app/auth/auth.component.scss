@@ -42,3 +42,38 @@ header {
     width: calc(100% - 100px);
   }
 }
+
+#password-protect {
+  z-index: 999999;
+  position: fixed;
+  left:0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  #key-pressed {
+    position: absolute;
+    font-size: 50vw;
+    color: white;
+    text-shadow: 4px 4px 4px rgba(0,0,0,0.3);
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    pointer-events: none;
+  }
+  .row {
+    max-width: 360px;
+    .digit {
+      padding: 1em 0;
+      button {
+        height: 2em;
+        width: 2em;
+        border-radius: 2em;
+        font-size: 2em;
+        cursor: pointer;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+      }
+    }
+  }
+}

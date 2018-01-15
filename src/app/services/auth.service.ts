@@ -133,7 +133,7 @@ export class AuthService {
 
     const dataAllergies = {
       Name: 'custom:allergies',
-      Value: JSON.stringify(credentials.allergies)
+      Value: credentials.allergies
     };
 
     const dataAlcohol = {

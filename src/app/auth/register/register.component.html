@@ -1,31 +1,72 @@
+<div class="row center-xs">
+  <h2 class="col-xs-12">Mitt svar</h2>
+</div>
 <form [formGroup]="credentials" (ngSubmit)="register()">
-  <div class="row center-xs">
-    <h2 class="col-xs-12">Jag kommer!</h2>
-  </div>
-  <div class="row center-xs">
-    <mat-form-field class="col-xs-12">
-      <input matInput type="text" formControlName="name" placeholder="Namn" required>
-    </mat-form-field>
-    <mat-form-field class="col-xs-12">
-      <input matInput type="text" formControlName="allergies" placeholder="Allergier" required>
-    </mat-form-field>
-    <mat-form-field class="col-xs-12">
-      <input matInput type="text" formControlName="alcohol" placeholder="Alcohol" required>
-    </mat-form-field>
-    <mat-form-field class="col-xs-12">
-      <input matInput type="text" formControlName="vegetarian" placeholder="Vegetarian" required>
-    </mat-form-field>
-    <mat-form-field class="col-xs-12">
-      <input matInput type="text" formControlName="message" placeholder="Meddelande">
-    </mat-form-field>
-    <mat-form-field class="col-xs-12">
-      <input matInput type="email" formControlName="email" placeholder="Epost" required>
-    </mat-form-field>
-    <mat-form-field class="col-xs-12">
-      <input matInput type="password" formControlName="password" placeholder="Lösenord" required>
-    </mat-form-field>
-  </div>
-  <div class="row center-xs">
-    <button mat-button [disabled]="!credentials.valid">Svara</button>
-  </div>
+  <mat-horizontal-stepper #stepper [linear]="true">
+    <mat-step [completed]="stepGroup.get([0]).valid" label="Ett">
+      <div class="row center-xs" >
+        <h3 class="col-xs-12">Ange ditt namn och dina preferenser</h3>
+      </div>
+      <div class="row center-xs">
+        <mat-form-field class="col-xs-7">
+          <input matInput type="text" formControlName="name" placeholder="Mitt namn" required>
+        </mat-form-field>
+      </div>
+      <div class="row center-xs">
+        <mat-form-field class="col-xs-7">
+            <mat-select placeholder="Jag dricker alhohol" formControlName="alcohol">
+              <mat-option *ngFor="let svar of ['Ja','Nej']" [value]="svar">{{ svar }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row center-xs">
+        <mat-form-field class="col-xs-7">
+          <mat-select placeholder="Jag är vegeterian" formControlName="vegetarian">
+            <mat-option *ngFor="let svar of ['Ja', 'Ja, men äter fisk', 'Nej']" [value]="svar">{{ svar }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row center-xs">
+        <mat-form-field class="col-xs-11">
+          <textarea matInput type="text"  matTextareaAutosize [matAutosizeMinRows]="1" [matAutosizeMaxRows]="10" formControlName="allergies" placeholder="Mina allergier"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-button matStepperNext type="button">Nästa</button>
+      </div>
+    </mat-step>
+    <mat-step label="Två">
+      <div class="row center-xs">
+        <h3 class="col-xs-12">Skriv ett personligt meddelande till brudparet</h3>
+      </div>
+      <div class="row center-xs">
+        <mat-form-field class="col-xs-11">
+          <textarea matInput matTextareaAutosize [matAutosizeMinRows]="1" [matAutosizeMaxRows]="2" type="text" formControlName="message" placeholder="Meddelande"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious type="button">Tillbaka</button>
+        <button mat-button matStepperNext type="button">Nästa</button>
+      </div>
+    </mat-step>
+    <mat-step [completed]="stepGroup.get([2]).valid" label="Tre">
+      <div class="row">
+        <h3 class="col-xs-12">Skapa ett konto för att slutföra din anmälan</h3>
+      </div>
+      <div class="row center-xs">
+        <mat-form-field class="col-xs-7">
+          <input matInput type="email" formControlName="email" placeholder="Epost" required>
+        </mat-form-field>
+      </div>
+      <div class="row center-xs">
+        <mat-form-field class="col-xs-7">
+          <input matInput type="password" formControlName="password" placeholder="Lösenord" required>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious type="button">Tillbaka</button>
+        <button mat-button matStepperNext [disabled]="!stepGroup.get([2]).valid">Svara</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
 </form>

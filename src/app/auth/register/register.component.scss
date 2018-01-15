@@ -1,7 +1,10 @@
 :host {
   display: block;
-}
+  mat-form-field {
+    padding: 0 25px;
+  }
 
-mat-form-field {
-  padding: 0 25px;
+  mat-horizontal-stepper {
+    background: none;
+  }
 }

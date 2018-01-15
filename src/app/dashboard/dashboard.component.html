@@ -1,0 +1,25 @@
+<div class="page">
+  <header>
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <nav>
+          <a routerLink="/dashboard/info" routerLinkActive="active">Information</a>
+          <a routerLink="/dashboard/photos" routerLinkActive="active">Bilder</a>
+          <a (click)="signout()">Logga ut</a>
+        </nav>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </header>
+
+  <mat-card>
+    <h2>mitt svar</h2>
+    <mat-list *ngIf="attr" dense>
+      <mat-list-item>Namn: {{attr.name}}</mat-list-item>
+      <mat-list-item>Epost: {{attr.email}}</mat-list-item>
+      <mat-list-item>Dricker alkohol: {{attr.alcohol}}</mat-list-item>
+      <mat-list-item>Är vegeterian: {{attr.vegetarian}}</mat-list-item>
+      <mat-list-item>Allergier: {{attr.allergies}}</mat-list-item>
+      <mat-list-item>Meddelande: {{attr.message}}</mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>
