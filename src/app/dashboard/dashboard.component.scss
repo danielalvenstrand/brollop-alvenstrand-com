@@ -1,18 +1,9 @@
-header {
-  nav {
-    width: 100%;
-    display: flex;
-    a {
-      flex-grow: 1;
-      text-decoration: none;
-      border-bottom: 2px solid lightgray;
-      text-align: center;
-      color: gray;
-      &.active {
-        color: red;
-        border-color: red;
-      }
-    }
+@import '../../styles.scss';
+@import '../../theme.scss';
+
+nav {
+  a.signout {
+      cursor: pointer;
   }
 }
 

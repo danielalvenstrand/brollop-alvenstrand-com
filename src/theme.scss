@@ -1,9 +1,48 @@
 @import '../node_modules/@angular/material/theming';
 
+$brollop-color-mauve: (
+  A500: #898AB6,
+  100: #E6D6D9,
+  500: #AD6588,
+  700: #7E3461,
+  contrast: (
+    A500: white,
+    100: black,
+    500: white,
+    700: white
+  )
+);
+
+$brollop-color-green: (
+  A500: #94BCAA,
+  100: #DED9A8,
+  500: #869B6A,
+  700: #758562,
+  contrast: (
+    A500: white,
+    100: black,
+    500: white,
+    700: white
+  )
+);
+
+$brollop-color-greyscale: (
+  A500: #999,
+  100: #F4F4F4,
+  500: #555,
+  700: #222,
+  contrast: (
+    A500: white,
+    100: black,
+    500: white,
+    700: white
+  )
+);
+
 @include mat-core();
 
-$brollop-primary: mat-palette($mat-indigo);
-$brollop-accent:  mat-palette($mat-pink, A200, A100, A400);
+$brollop-primary: mat-palette($brollop-color-green, 700, 100, A500);
+$brollop-accent:  mat-palette($brollop-color-mauve);
 
 
 $brollop-warn:    mat-palette($mat-red);

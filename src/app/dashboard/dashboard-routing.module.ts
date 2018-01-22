@@ -11,6 +11,7 @@ const routes: Routes = [
     component: DashboardComponent,
     canLoad: [AuthGuard],
     children: [
+      {path: '', pathMatch: 'full', redirectTo: '/dashboard/info'},
       {path: 'info', component: InfoComponent},
       {path: 'photos', component: PhotosComponent}
     ]

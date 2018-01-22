@@ -1,6 +1,11 @@
-import {Component, OnInit, ViewChild, ElementRef, HostListener} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, HostListener, HostBinding} from '@angular/core';
 import {fadeInSlow, fadeOutSlow, keypadTransition, routerTransition} from '../animations';
-import {MatButton} from '@angular/material';
+import {MatButton, MatSidenav} from '@angular/material';
+import {environment} from '../../environments/environment';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
 
 @Component({
   selector: 'da-auth',
@@ -9,8 +14,11 @@ import {MatButton} from '@angular/material';
   animations: [routerTransition, fadeInSlow, fadeOutSlow, keypadTransition]
 })
 export class AuthComponent implements OnInit {
+  @HostBinding() class = 'page-component';
   @ViewChild('authContent') authContent: ElementRef;
+  @ViewChild('sidenav') sidenav: MatSidenav;
   mutationObserver: MutationObserver;
+  under_construction = environment.under_construction;
 
   @ViewChild('one') one: MatButton;
   @ViewChild('two') two: MatButton;
@@ -72,7 +80,7 @@ export class AuthComponent implements OnInit {
     }
   }
 
-  constructor() {
+  constructor(private _router: Router, private _route: ActivatedRoute) {
     this.mutationObserver = new MutationObserver(mutations => {
       mutations.forEach(mutation => {
         if (mutation.type === 'childList') {
@@ -80,6 +88,18 @@ export class AuthComponent implements OnInit {
         }
       })
     });
+    this._router.events
+      .filter((event) => event instanceof NavigationEnd)
+      .map(() => this._route)
+      .map((route) => {
+        while (route.firstChild) route = route.firstChild;
+        return route;
+      })
+      .filter((route) => route.outlet === 'primary')
+      .mergeMap((route) => route.data)
+      .subscribe((event) => {
+        this.sidenav && this.sidenav.close();
+      });
   }
 
   getState(outlet) {
@@ -91,11 +111,7 @@ export class AuthComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.mutationObserver.observe(this.authContent.nativeElement, {attributes: true, childList: true, characterData: true});
-    window.addEventListener('resize', () => this.setContentHeight(this.authContent.nativeElement));
-    setTimeout(() => this.setContentHeight(this.authContent.nativeElement), 100);
-
-    if (localStorage.getItem('unlocked') === 'true') this.protected = false;
+    if (localStorage.getItem('unlocked') === 'true') this._unlock();
   }
 
   setContentHeight(e) {
@@ -113,10 +129,24 @@ export class AuthComponent implements OnInit {
   digit(d: number): void {
     this.digits.push(d);
     if (this.digits.length >= 7) this.digits = this.digits.slice(this.digits.length - 6, this.digits.length);
-    if (this.digits.reduce((str, digit) => str + digit, '') === '921912') {
-      this.protected = false;
-      localStorage.setItem('unlocked', 'true');
+    if (this.digits.reduce((str, digit) => str + digit, '') === environment.protection_code) {
+      this._unlock();
     }
+  }
+
+  protected _unlock() {
+    this.protected = false;
+    localStorage.setItem('unlocked', 'true');
+
+    setTimeout(() => {
+      this.mutationObserver.observe(this.authContent.nativeElement, {
+        attributes: true,
+        childList: true,
+        characterData: true
+      });
+      window.addEventListener('resize', () => this.setContentHeight(this.authContent.nativeElement));
+    }, 0);
+    setTimeout(() => this.setContentHeight(this.authContent.nativeElement), 100);
   }
 
 }

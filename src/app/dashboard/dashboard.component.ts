@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {UserAttributes, UserService} from '../services/user.service';
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'da-dashboard',
@@ -9,6 +10,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  @HostBinding() class = 'page-component';
+  under_construction = environment.under_construction;
 
   attr: UserAttributes;
 

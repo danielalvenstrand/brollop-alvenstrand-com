@@ -5,6 +5,8 @@
 
 export const environment = {
   production: false,
+  under_construction: true,
+  protection_code: '929912',
   AWS: {
     REGION: 'eu-west-1',
     USERPOOL_ID: 'eu-west-1_9IgRBExad',

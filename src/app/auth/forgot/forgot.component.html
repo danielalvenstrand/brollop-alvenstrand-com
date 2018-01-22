@@ -3,12 +3,12 @@
     <h3>Skriv i din epost för att återställa lösenordet</h3>
   </div>
   <div class="row center-xs">
-    <mat-form-field class="col-xs-7">
+    <mat-form-field class="col-xs-12 col-sm-10 col-md-7">
       <input matInput type="email" formControlName="email" placeholder="Epost">
     </mat-form-field>
   </div>
   <div class="row center-xs">
-    <button mat-button [disabled]="!requestCredentials.valid">Återställ</button>
+    <button mat-raised-button [disabled]="!requestCredentials.valid">Återställ</button>
   </div>
 </form>
 <form [formGroup]="confirmCredentials" (ngSubmit)="confirmPasswordReset()" [hidden]="!requested">
@@ -16,28 +16,16 @@
     <h3>Ange återställningskod och ditt nya lösenord</h3>
   </div>
   <div class="row center-xs">
-    <mat-form-field class="col-xs-7">
+    <mat-form-field class="col-xs-12 col-sm-10 col-md-7">
       <input matInput type="text" formControlName="resetCode" placeholder="Återställningskod">
     </mat-form-field>
   </div>
   <div class="row center-xs">
-    <mat-form-field class="col-xs-7">
+    <mat-form-field class="col-xs-12 col-sm-10 col-md-7">
       <input matInput type="password" formControlName="newPassword" placeholder="Nytt lösenord">
     </mat-form-field>
   </div>
   <div class="row center-xs">
-    <button mat-button [disabled]="!confirmCredentials.valid">Byt lösenord</button>
+    <button mat-raised-button color="primary" [disabled]="!confirmCredentials.valid">Byt lösenord</button>
   </div>
 </form>
-<!--<form [formGroup]="confirmCredentials" (ngSubmit)="confirmPasswordReset()" [hidden]="!requested">
-  <h2 text-center>Minns ej</h2>
-  <ion-item-divider no-lines></ion-item-divider>
-  <ion-item>
-    <ion-input type="number" required formControlName="resetCode" minlength="6" maxlength="6" placeholder="Återställingskod"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input type="password" required formControlName="newPassword" placeholder="Nytt lösenord"></ion-input>
-  </ion-item>
-  <ion-item-divider no-lines></ion-item-divider>
-  <button ion-button full round color="secondary" type="submit" [disabled]="!confirmCredentials.valid">Spara lösenord</button>
-</form>-->

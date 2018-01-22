@@ -1,16 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~flexboxgrid-sass/flexboxgrid.scss';
-
-$colors: (
-  primary: #8989b7,
-  secondary: #869c68,
-  danger:     #f56762,
-  light:      #f4f4f4,
-  dark:       #222,
-  heading1: #9dbc72,
-  heading2: #758661,
-  middle:   #999
-);
+@import 'theme.scss';
 
 @font-face {
   font-family: "Mf Wedding Bells";
@@ -19,7 +9,7 @@ $colors: (
 
 @font-face {
   font-family: "RaphLanokFuture";
-  src:  url('/assets/fonts/RaphLanokFuture.otf') format('OpenType'),
+  src: url('/assets/fonts/RaphLanokFuture.otf') format('OpenType'),
   url('/assets/fonts/RaphLanokFuture.ttf') format('TrueType');
 }
 
@@ -28,7 +18,7 @@ html, body {
   margin: 0;
 }
 
-.page {
+.page, .page-sidenav-content {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -39,14 +29,68 @@ html, body {
     flex-grow: 1;
     overflow-x: hidden;
   }
+  &.under-construction {
+    height: calc(100vh - 2em);
+  }
+}
+
+.page {
+  .page-sidenav, .page-sidenav-button {
+    display: none;
+    @media ($mat-small) {
+      display: block;
+    }
+  }
+  .page-sidenav {
+    nav {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding-top: 0.5em;
+      a {
+        margin: 1em 0;
+        padding: 0.5em 1em;
+        font-size: 1.5em;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        flex-grow: 1;
+        text-decoration: none;
+        border-bottom: 2px solid lightgray;
+        text-align: left;
+        color: mat-color($brollop-color-greyscale, A500);
+        &.active {
+          color: mat-color($brollop-color-green, A500);
+          border-color: mat-color($brollop-color-green, A500);
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  .page-toolbar-nav {
+    button {
+      display: none;
+    }
+    @media ($mat-small) {
+      display: flex;
+      align-items: center;
+      padding-left: 0;
+      button {
+        display: block;
+      }
+      a:not(.active) {
+        display: none;
+      }
+    }
+  }
 }
 
 .mat-form-field-underline {
-  background-color: rgba(0,0,0,.14);
+  background-color: rgba(0, 0, 0, .14);
 }
 
 .mat-form-field-placeholder {
-  color: rgba(0,0,0,.42);
+  color: rgba(0, 0, 0, .42);
 }
 
 h2 {
@@ -56,8 +100,8 @@ h2 {
   font-size: 12vw;
   margin: 0;
   text-transform: lowercase;
-  color: map-get($colors, heading1);
-  background: -webkit-linear-gradient(map-get($colors, heading1), map-get($colors, heading2));
+  color: mat-color($brollop-color-mauve, 500);
+  background: -webkit-linear-gradient(mat-color($brollop-color-mauve, 100), mat-color($brollop-color-mauve, 500));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   width: 100%;
@@ -94,9 +138,10 @@ h2 {
     height: 100%;
     left: 0;
     top: 0;
-    background-color: rgba(0,0,0,0.15);
+    background-color: rgba(0, 0, 0, 0.15);
   }
 }
+
 .video-container video.fillWidth {
   min-width: 100%;
   min-height: 100%;
@@ -104,9 +149,31 @@ h2 {
   top: 0;
 }
 
+header {
+  nav {
+    width: 100%;
+    display: flex;
+    a {
+      flex-grow: 1;
+      text-decoration: none;
+      border-bottom: 2px solid lightgray;
+      text-align: center;
+      color: mat-color($brollop-color-greyscale, A500);
+      &.active {
+        color: mat-color($brollop-color-green, A500);
+        border-color: mat-color($brollop-color-green, A500);
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
 mat-icon {
   font-family: 'Material Icons' !important;
 }
+
 .mat-horizontal-content-container {
   padding: 0 !important;
 }

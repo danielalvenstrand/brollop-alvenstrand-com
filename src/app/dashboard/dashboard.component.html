@@ -1,25 +1,40 @@
-<div class="page">
-  <header>
-    <mat-toolbar>
-      <mat-toolbar-row>
+<div class="page" [class.under-construction]="under_construction">
+  <mat-sidenav-container class="page-container">
+    <mat-sidenav #sidenav class="page-sidenav">
         <nav>
           <a routerLink="/dashboard/info" routerLinkActive="active">Information</a>
           <a routerLink="/dashboard/photos" routerLinkActive="active">Bilder</a>
-          <a (click)="signout()">Logga ut</a>
+          <a (click)="signout()" class="signout">Logga ut</a>
         </nav>
-      </mat-toolbar-row>
-    </mat-toolbar>
-  </header>
+    </mat-sidenav>
 
-  <mat-card>
-    <h2>mitt svar</h2>
-    <mat-list *ngIf="attr" dense>
-      <mat-list-item>Namn: {{attr.name}}</mat-list-item>
-      <mat-list-item>Epost: {{attr.email}}</mat-list-item>
-      <mat-list-item>Dricker alkohol: {{attr.alcohol}}</mat-list-item>
-      <mat-list-item>Är vegeterian: {{attr.vegetarian}}</mat-list-item>
-      <mat-list-item>Allergier: {{attr.allergies}}</mat-list-item>
-      <mat-list-item>Meddelande: {{attr.message}}</mat-list-item>
-    </mat-list>
-  </mat-card>
+    <div class="page-sidenav-content">
+      <header>
+        <mat-toolbar>
+          <mat-toolbar-row class="page-toolbar-nav">
+            <button type="button" mat-button (click)="sidenav.open()">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <nav>
+              <a routerLink="/dashboard/info" routerLinkActive="active">Information</a>
+              <a routerLink="/dashboard/photos" routerLinkActive="active">Bilder</a>
+              <a (click)="signout()" class="signout">Logga ut</a>
+            </nav>
+          </mat-toolbar-row>
+        </mat-toolbar>
+      </header>
+
+      <mat-card>
+        <h2>mitt svar</h2>
+        <mat-list *ngIf="attr" dense>
+          <mat-list-item>Namn: {{attr.name}}</mat-list-item>
+          <mat-list-item>Epost: {{attr.email}}</mat-list-item>
+          <mat-list-item>Dricker alkohol: {{attr.alcohol}}</mat-list-item>
+          <mat-list-item>Är vegeterian: {{attr.vegetarian}}</mat-list-item>
+          <mat-list-item>Allergier: {{attr.allergies}}</mat-list-item>
+          <mat-list-item>Meddelande: {{attr.message}}</mat-list-item>
+        </mat-list>
+      </mat-card>
+    </div>
+  </mat-sidenav-container>
 </div>
