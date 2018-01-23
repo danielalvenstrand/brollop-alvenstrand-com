@@ -23,6 +23,9 @@ html, body {
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  .box {
+    overflow: auto;
+  }
   header {
   }
   main {
@@ -35,6 +38,7 @@ html, body {
 }
 
 .page {
+  overflow: hidden;
   .page-sidenav, .page-sidenav-button {
     display: none;
     @media ($mat-small) {
@@ -44,10 +48,13 @@ html, body {
   .page-sidenav {
     nav {
       width: 100%;
+      min-width: 66.67vw;
       display: flex;
       flex-direction: column;
       padding-top: 0.5em;
       a {
+        display: flex;
+        align-items: center;
         margin: 1em 0;
         padding: 0.5em 1em;
         font-size: 1.5em;
@@ -63,6 +70,9 @@ html, body {
         }
         &:focus {
           outline: none;
+        }
+        mat-icon {
+          margin-right: 0.5em;
         }
       }
     }
@@ -154,6 +164,9 @@ header {
     width: 100%;
     display: flex;
     a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-grow: 1;
       text-decoration: none;
       border-bottom: 2px solid lightgray;
@@ -165,6 +178,9 @@ header {
       }
       &:focus {
         outline: none;
+      }
+      mat-icon {
+        margin-right: 0.5em;
       }
     }
   }
@@ -183,4 +199,31 @@ h3 {
   font-weight: 200;
   letter-spacing: 3px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.showcase {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  @media ($mat-xsmall) {
+    justify-content: center;
+    padding-top: 1em;
+  }
+  mat-icon {
+    font-size: 25vw;
+    width: 1em;
+    height: 1em;
+    @media ($mat-small) {
+      font-size: 15em;
+    }
+    @media ($mat-xsmall) {
+      font-size: 33.33vw;
+    }
+  }
+}
+
+.full-height, .full-height .mat-tab-body-wrapper, .full-height .mat-tab-body-wrapper mat-tab-body , .full-height .mat-tab-body-wrapper mat-tab-body  .mat-tab-body-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }

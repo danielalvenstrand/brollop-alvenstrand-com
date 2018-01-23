@@ -2,9 +2,9 @@
   <mat-sidenav-container class="page-container">
     <mat-sidenav #sidenav class="page-sidenav">
       <nav>
-        <a routerLink="/signin" routerLinkActive="active">Logga in</a>
-        <a routerLink="/signup" routerLinkActive="active">Svara</a>
-        <a routerLink="/forgot" routerLinkActive="active">Återställ lösenord</a>
+        <a *ngFor="let option of menu" routerLink="{{option.link}}" routerLinkActive="active">
+          <mat-icon>{{option.icon}}</mat-icon>{{option.text}}
+        </a>
       </nav>
     </mat-sidenav>
 
@@ -16,9 +16,9 @@
               <mat-icon>menu</mat-icon>
             </button>
             <nav>
-              <a routerLink="/signin" routerLinkActive="active">Logga in</a>
-              <a routerLink="/signup" routerLinkActive="active">Svara</a>
-              <a routerLink="/forgot" routerLinkActive="active">Återställ lösenord</a>
+              <a *ngFor="let option of menu" routerLink="{{option.link}}" routerLinkActive="active">
+                <mat-icon>{{option.icon}}</mat-icon>{{option.text}}
+              </a>
             </nav>
           </mat-toolbar-row>
         </mat-toolbar>

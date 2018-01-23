@@ -1,3 +1,146 @@
-<p>
-  info works!
-</p>
+<mat-tab-group class="full-height">
+  <mat-tab label="Tid och plats">
+    <article>
+      <section class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <h2>tid och plats</h2>
+        <section class="row map-section" *ngIf="place">
+          <div class="col-xs-12 col-sm-6">
+              <agm-map [latitude]="coordinates[place].lat" [longitude]="coordinates[place].lng" [zoom]="16">
+                <agm-marker [latitude]="coordinates[place].lat" [longitude]="coordinates[place].lng"></agm-marker>
+              </agm-map>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+          <mat-list>
+            <h3 matSubHeader>{{coordinates[place].address}}</h3>
+            <mat-list-item *ngFor="let info of coordinates[place].info">
+              {{info}}
+            </mat-list-item>
+          </mat-list>
+          </div>
+        </section>
+        <section class="row">
+          <div class="col-xs-12 col-sm-6 showcase showcase-timeplace">
+            <mat-icon>favorite</mat-icon>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <mat-list>
+              <h3 matSubHeader>Vigsel</h3>
+              <mat-list-item>
+                <span matLine>15:00</span>
+                <span matLine>Skogaholms Trädgård, Skansen<button mat-icon-button color="accent" (click)="place = 'skansen'"><mat-icon>place</mat-icon></button></span>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <h3 matSubHeader>Middag</h3>
+              <mat-list-item>
+                <span matLine>16:30</span>
+                <span matLine>Clustret, Gamla Stan<button mat-icon-button color="accent" (click)="place = 'clustret'"><mat-icon>place</mat-icon></button></span>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </section>
+      </section>
+    </article>
+  </mat-tab>
+  <mat-tab label="Mat och dryck">
+    <article>
+      <section class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <h2>mat och dryck</h2>
+        <section class="row">
+          <div class="col-xs-12 col-sm-6 showcase showcase-fooddrink">
+            <mat-icon>restaurant</mat-icon>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <mat-list>
+              <h3 matSubHeader>Förrätt</h3>
+              <mat-list-item>
+                <span matLine>Mat...</span>
+                <span matLine>Dryck...</span>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <h3 matSubHeader>Huvudrätt</h3>
+              <mat-list-item>
+                <span matLine>Mat...</span>
+                <span matLine>Dryck...</span>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <h3 matSubHeader>Bröllopstårta</h3>
+              <mat-list-item>
+                <span matLine>Mat...</span>
+                <span matLine>Dryck...</span>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </section>
+      </section>
+    </article>
+  </mat-tab>
+  <mat-tab label="Kontakta oss">
+    <article class="full-height">
+      <section class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <h2>kontakta oss</h2>
+        <section class="row">
+          <div class="col-xs-12 col-sm-6 showcase showcase-contacts">
+            <mat-icon>contacts</mat-icon>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <mat-list class="contact-list">
+              <h3 matSubHeader>Daniel</h3>
+              <mat-list-item>
+                <a href="tel:+46736227666"><button mat-button><mat-icon color="primary">phone</mat-icon>+46 736 22 76 66</button></a>
+              </mat-list-item>
+              <mat-list-item>
+                <a href="mailto:daniel@alvenstrand.com"><button mat-button><mat-icon color="primary">mail</mat-icon>daniel@alvenstrand.com</button></a>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <h3 matSubHeader>Lisa</h3>
+              <mat-list-item>
+                <a href="+46733524141"><button mat-button><mat-icon color="accent">phone</mat-icon>+46 733 52 41 41</button></a>
+              </mat-list-item>
+              <mat-list-item>
+                <a href="mailto:lisa.sorensen999@gmail.com"><button mat-button><mat-icon color="accent">mail</mat-icon>lisa.sorensen999@gmail.com</button></a>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </section>
+      </section>
+    </article>
+  </mat-tab>
+  <mat-tab label="Mina svar">
+    <article class="full-height">
+      <section class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <h2>mitt svar</h2>
+        <section class="row">
+          <div class="col-xs-12 col-sm-6 showcase showcase-answer">
+            <mat-icon>drafts</mat-icon>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <mat-list *ngIf="attr">
+              <h3 matSubHeader>Uppgifter</h3>
+              <mat-list-item>
+                <span>Namn: <strong>{{attr.name}}</strong></span>
+              </mat-list-item>
+              <mat-list-item>
+                <span >Email: <strong>{{attr.email}}</strong></span>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <h3 matSubHeader>Preferenser</h3>
+              <mat-list-item>
+                <span >Alkohol: <strong>{{attr.alcohol}}</strong></span>
+              </mat-list-item>
+              <mat-list-item>
+                <span>Vegeterian: <strong>{{attr.vegetarian}}</strong></span>
+              </mat-list-item>
+              <mat-list-item>
+                <span >Allergier: <strong>{{attr.allergies}}</strong></span>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <h3 matSubHeader>Meddelande</h3>
+              <mat-list-item>{{attr.message}}</mat-list-item>
+            </mat-list>
+          </div>
+        </section>
+      </section>
+    </article>
+  </mat-tab>
+</mat-tab-group>
+

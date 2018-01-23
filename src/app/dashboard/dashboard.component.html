@@ -1,11 +1,16 @@
 <div class="page" [class.under-construction]="under_construction">
   <mat-sidenav-container class="page-container">
     <mat-sidenav #sidenav class="page-sidenav">
-        <nav>
-          <a routerLink="/dashboard/info" routerLinkActive="active">Information</a>
-          <a routerLink="/dashboard/photos" routerLinkActive="active">Bilder</a>
-          <a (click)="signout()" class="signout">Logga ut</a>
-        </nav>
+      <nav>
+        <a *ngFor="let option of menu" routerLink="{{option.link}}" routerLinkActive="active">
+          <mat-icon>{{option.icon}}</mat-icon>
+          {{option.text}}
+        </a>
+        <a (click)="signout()" class="signout">
+          <mat-icon>subdirectory_arrow_left</mat-icon>
+          Logga ut
+        </a>
+      </nav>
     </mat-sidenav>
 
     <div class="page-sidenav-content">
@@ -16,25 +21,21 @@
               <mat-icon>menu</mat-icon>
             </button>
             <nav>
-              <a routerLink="/dashboard/info" routerLinkActive="active">Information</a>
-              <a routerLink="/dashboard/photos" routerLinkActive="active">Bilder</a>
-              <a (click)="signout()" class="signout">Logga ut</a>
+              <a *ngFor="let option of menu" routerLink="{{option.link}}" routerLinkActive="active">
+                <mat-icon>{{option.icon}}</mat-icon>
+                {{option.text}}
+              </a>
+              <a (click)="signout()" class="signout">
+                <mat-icon>subdirectory_arrow_left</mat-icon>
+                Logga ut
+              </a>
             </nav>
           </mat-toolbar-row>
         </mat-toolbar>
       </header>
-
-      <mat-card>
-        <h2>mitt svar</h2>
-        <mat-list *ngIf="attr" dense>
-          <mat-list-item>Namn: {{attr.name}}</mat-list-item>
-          <mat-list-item>Epost: {{attr.email}}</mat-list-item>
-          <mat-list-item>Dricker alkohol: {{attr.alcohol}}</mat-list-item>
-          <mat-list-item>Är vegeterian: {{attr.vegetarian}}</mat-list-item>
-          <mat-list-item>Allergier: {{attr.allergies}}</mat-list-item>
-          <mat-list-item>Meddelande: {{attr.message}}</mat-list-item>
-        </mat-list>
-      </mat-card>
+      <div class="box full-height" id="dash-content" [@routerTransition]="getState(o)">
+        <router-outlet #o="outlet"></router-outlet>
+      </div>
     </div>
   </mat-sidenav-container>
 </div>

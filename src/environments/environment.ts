@@ -5,8 +5,9 @@
 
 export const environment = {
   production: false,
-  under_construction: true,
+  under_construction: false,
   protection_code: '929912',
+  GM_API_KEY: 'AIzaSyBBP_u5ErisRuith55SW9qvMdmMonET1H0',
   AWS: {
     REGION: 'eu-west-1',
     USERPOOL_ID: 'eu-west-1_9IgRBExad',

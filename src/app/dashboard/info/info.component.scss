@@ -1,0 +1,61 @@
+@import '../../../theme.scss';
+
+h2 {
+  text-align: center;
+}
+
+.map-section {
+  margin: 2em 0;
+  agm-map {
+    height: 250px;
+    &::ng-deep .agm-map-container-inner {
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+      border-radius: 4px;
+    }
+  }
+}
+
+.contact-list {
+    a, a:visited, a:focus, a:hover {
+      text-decoration: none;
+      color: black;
+    }
+    mat-icon {
+      margin-right: 0.5em;
+    }
+}
+
+.showcase {
+  &.showcase-contacts {
+    mat-icon {
+      color: mat-color($brollop-color-green, 500);
+      background: -webkit-linear-gradient(mat-color($brollop-color-green, 500), mat-color($brollop-color-green, 700));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  &.showcase-timeplace {
+    mat-icon {
+      color: mat-color($brollop-color-mauve, 500);
+      background: -webkit-linear-gradient(mat-color($brollop-color-mauve, 500), mat-color($brollop-color-mauve, 700));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  &.showcase-answer {
+    mat-icon {
+      color: mat-color($brollop-color-green, 100);
+      background: -webkit-linear-gradient(mat-color($brollop-color-green, 100), mat-color($brollop-color-green, A500));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  &.showcase-fooddrink {
+    mat-icon {
+      color: mat-color($brollop-color-mauve, 100);
+      background: -webkit-linear-gradient(mat-color($brollop-color-mauve, 100), mat-color($brollop-color-mauve, A500));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}

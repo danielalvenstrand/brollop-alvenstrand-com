@@ -34,6 +34,11 @@ export class AuthComponent implements OnInit {
   protected = true;
   digits: number[] = [];
   key: string = '';
+  menu = [
+      { link: '/signin', text: 'Logga in', icon: 'exit_to_app' },
+      { link: '/signup', text: 'Svara', icon: 'drafts' },
+      { link: '/forgot', text: 'Återställ lösenord', icon: 'lock_open' }
+  ]
 
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
