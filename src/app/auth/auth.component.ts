@@ -151,7 +151,7 @@ export class AuthComponent implements OnInit {
       });
       window.addEventListener('resize', () => this.setContentHeight(this.authContent.nativeElement));
     }, 0);
-    setTimeout(() => this.setContentHeight(this.authContent.nativeElement), 100);
+    setTimeout(() => this.setContentHeight(this.authContent.nativeElement), 1100);
   }
 
 }
