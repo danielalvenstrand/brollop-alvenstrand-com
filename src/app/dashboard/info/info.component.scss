@@ -1,7 +1,10 @@
 @import '../../../theme.scss';
+@import '../../../styles.scss';
 
 h2 {
   text-align: center;
+  @include floatingAnimation(1, 1, -1.25%, 1.25%, -4.25deg, -4deg, 2.5s);
+  margin: 0.25em 0;
 }
 
 .map-section {
@@ -26,7 +29,26 @@ h2 {
 }
 
 .showcase {
-  &.showcase-contacts {
+  h2 {
+    animation: none;
+  }
+  mat-icon {
+    transition: transform 0.3s ease-in-out;
+    + span {
+      transition: transform 0.3s ease-in-out;
+      pointer-events: none;
+      h2 {
+        user-select: none;
+      }
+    }
+    &:hover {
+      transform: scale(1.025) rotate(-0.25deg);
+      + span {
+        transform: scale(1.05) rotate(2deg) translateX(-95%) translateY(2.5%);
+      }
+    }
+  }
+  &.showcase-answer {
     mat-icon {
       color: mat-color($brollop-color-green, 500);
       background: -webkit-linear-gradient(mat-color($brollop-color-green, 500), mat-color($brollop-color-green, 700));
@@ -35,14 +57,52 @@ h2 {
     }
   }
   &.showcase-timeplace {
+    margin-top: -10vw;
+    margin-bottom: -10vw;
     mat-icon {
       color: mat-color($brollop-color-mauve, 500);
       background: -webkit-linear-gradient(mat-color($brollop-color-mauve, 500), mat-color($brollop-color-mauve, 700));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    > span {
+      margin-right: -25vw;
+      transform: translateX(-100%);
+      width: 25vw;
+      height: 25vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      @media ($mat-small) {
+        height: 15em;
+        width: 15em;
+        margin-right: -15em;
+      }
+      @media ($mat-xsmall) {
+        height: 33.33vw;
+        width: 33.33vw;
+        margin-right: -33.33vw;
+      }
+      > h2 {
+        color: white;
+        background: -webkit-linear-gradient(white, mat-color($brollop-color-greyscale, 100));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 25px rgba(255,255,255,0.3);
+        line-height: 1em;
+        font-size: 5vw;
+        padding: 1em;
+        @media ($mat-small) {
+          font-size: 3em;
+        }
+        @media ($mat-xsmall) {
+          font-size: 6.67vw;
+        }
+      }
+    }
   }
-  &.showcase-answer {
+  &.showcase-contacts {
     mat-icon {
       color: mat-color($brollop-color-green, 100);
       background: -webkit-linear-gradient(mat-color($brollop-color-green, 100), mat-color($brollop-color-green, A500));

@@ -121,6 +121,7 @@ h2 {
   @media (min-width: 1200px) {
     font-size: 5vw;
   }
+  user-select: none;
 }
 
 .video-container {
@@ -195,7 +196,7 @@ mat-icon {
 }
 
 h3 {
-  color: #999;
+  color: #666;
   font-weight: 200;
   letter-spacing: 3px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -213,6 +214,7 @@ h3 {
     font-size: 25vw;
     width: 1em;
     height: 1em;
+    user-select: none;
     @media ($mat-small) {
       font-size: 15em;
     }
@@ -226,4 +228,22 @@ h3 {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  //overflow: hidden;
+}
+
+.full-height .mat-tab-body-wrapper {
+  //overflow-y: auto;
+}
+
+.full-height .mat-tab-body-wrapper mat-tab-body  .mat-tab-body-content {
+  //overflow-y: visible;
+}
+
+
+@mixin floatingAnimation($scaleStart, $scaleEnd, $translateYStart, $translateYEnd, $rotateStart, $rotateEnd, $duration) {
+  @keyframes floating {
+    0%, 100% {transform: scale($scaleStart) translateY($translateYStart) rotate($rotateStart);}
+    50% {transform: scale($scaleEnd) translateY($translateYEnd) rotate($rotateEnd);}
+  }
+  animation: floating $duration infinite ease-in-out;
 }

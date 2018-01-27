@@ -13,8 +13,8 @@ export class InfoComponent implements OnInit {
 
   coordinates = {
     skansen: {
-      lat: 59.325781,
-      lng: 18.1044525,
+      lat: 59.325823,
+      lng: 18.105610,
       address: 'Sollidenbacken, 115 21 Stockholm',
       info: [
         'Ta spårvagn 7 eller buss 69 till hållplats Skansen.',
@@ -23,8 +23,8 @@ export class InfoComponent implements OnInit {
       ]
     },
     clustret: {
-      lat: 59.3223537,
-      lng: 18.071947,
+      lat: 59.322348,
+      lng: 18.074306,
       address: 'Skeppsbron 44, 111 30 Stockholm',
       info: [
         'Alla åker abonnerad buss till Clustret från Skansen.',
