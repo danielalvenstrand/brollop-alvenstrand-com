@@ -28,6 +28,12 @@ h2 {
     }
 }
 
+.infospace {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .showcase {
   h2 {
     animation: none;
@@ -57,8 +63,9 @@ h2 {
     }
   }
   &.showcase-timeplace {
-    margin-top: -10vw;
-    margin-bottom: -10vw;
+    @media ($mat-xsmall) {
+      margin-top: -10vw;
+    }
     mat-icon {
       color: mat-color($brollop-color-mauve, 500);
       background: -webkit-linear-gradient(mat-color($brollop-color-mauve, 500), mat-color($brollop-color-mauve, 700));

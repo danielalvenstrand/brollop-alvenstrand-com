@@ -50,5 +50,19 @@ $brollop-warn:    mat-palette($mat-red);
 
 $brollop-theme: mat-light-theme($brollop-primary, $brollop-accent, $brollop-warn);
 
+$brollop-typography1: mat-typography-config(
+  $font-family: "'Comfortaa', roboto, monospace"
+);
 
+$brollop-typography2: mat-typography-config(
+  $font-family: "'Quinzey', roboto, monospace"
+);
+
+@include mat-core($brollop-typography1);
+@include mat-toolbar-typography($brollop-typography2);
+@include mat-tabs-typography($brollop-typography2);
 @include angular-material-theme($brollop-theme);
+
+.mat-tab-label {
+  font-size: 1.2em;
+}

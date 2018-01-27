@@ -1,0 +1,12 @@
+@import '../../../theme.scss';
+@import '../../../styles.scss';
+
+h2 {
+  text-align: center;
+  @include floatingAnimation(1, 1, -1.25%, 1.25%, -4.25deg, -4deg, 2.5s);
+  margin: 0.25em 0;
+}
+
+h2 + h3 {
+  text-align: center;
+}

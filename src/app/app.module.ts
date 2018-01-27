@@ -11,14 +11,19 @@ import {AuthService} from './services/auth.service';
 import {DashboardModule} from './dashboard/dashboard.module';
 import {UserService} from './services/user.service';
 import {AppMatModule} from './app.mat.module';
+import {PrivacyComponent} from './privacy/privacy.component';
+import {environment} from '../environments/environment';
+import {ServiceWorkerModule} from '@angular/service-worker';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
+    PrivacyComponent
   ],
   imports: [
     BrowserModule,
+    environment.production ? ServiceWorkerModule.register('../ngsw-worker.js') : [],
     AppRoutingModule,
     BrowserAnimationsModule,
     AuthModule,

@@ -1,6 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~flexboxgrid-sass/flexboxgrid.scss';
-@import 'theme.scss';
 
 @font-face {
   font-family: "Mf Wedding Bells";
@@ -13,9 +11,43 @@
   url('/assets/fonts/RaphLanokFuture.ttf') format('TrueType');
 }
 
+@font-face {
+  font-family: "Quinzey";
+  src: url('/assets/fonts/Quinzey.otf') format('OpenType');
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Quinzey";
+  src: url('/assets/fonts/Quinzey_Medium.otf') format('OpenType');
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Quinzey";
+  src: url('/assets/fonts/Quinzey_Bold.otf') format('OpenType');
+}
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url('/assets/fonts/Comfortaa-Regular.ttf') format('TrueType');
+}
+@font-face {
+  font-family: "Comfortaa";
+  src: url('/assets/fonts/Comfortaa-Light.ttf') format('TrueType');
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Comfortaa";
+  src: url('/assets/fonts/Comfortaa-Bold.ttf') format('TrueType');
+  font-weight: 600;
+}
+
+@import '~flexboxgrid-sass/flexboxgrid.scss';
+@import 'theme.scss';
+
 html, body {
   padding: 0;
   margin: 0;
+  font-family: "Quinzey", Roboto, "Helvetica Neue", sans-serif;
 }
 
 .page, .page-sidenav-content {
@@ -58,12 +90,12 @@ html, body {
         margin: 1em 0;
         padding: 0.5em 1em;
         font-size: 1.5em;
-        font-family: Roboto, "Helvetica Neue", sans-serif;
         flex-grow: 1;
         text-decoration: none;
         border-bottom: 2px solid lightgray;
         text-align: left;
         color: mat-color($brollop-color-greyscale, A500);
+        font-family: "Quinzey", Roboto, "Helvetica Neue", sans-serif;
         &.active {
           color: mat-color($brollop-color-green, A500);
           border-color: mat-color($brollop-color-green, A500);
@@ -199,7 +231,7 @@ h3 {
   color: #666;
   font-weight: 200;
   letter-spacing: 3px;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Quinzey", Roboto, "Helvetica Neue", sans-serif;
 }
 
 .showcase {

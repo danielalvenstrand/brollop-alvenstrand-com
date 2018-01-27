@@ -1,0 +1,41 @@
+h1, h2, h3, p {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 1em;
+  color: black;
+  background: none;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+  line-height: 1.2em;
+  text-align: left;
+  text-transform: none;
+}
+
+article {
+  padding-top: 2em;
+}
+
+section {
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-size: 1.6em;
+  padding-bottom: 0.4em;
+  &.title {
+    font-size: 2.5em;
+    text-decoration: underline;
+    padding-top: 1em;
+  }
+}
+
+h2 {
+  font-size: 1.4em;
+  padding-bottom: 0.2em;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+p {
+  padding-bottom: 0.6em;
+}

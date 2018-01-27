@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AuthGuard} from './auth.guard';
+import {PrivacyComponent} from './privacy/privacy.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: '/signup',
     pathMatch: 'full'
+  },
+  {
+    path: 'privacy',
+    component: PrivacyComponent
   },
   {
     path: 'dashboard',

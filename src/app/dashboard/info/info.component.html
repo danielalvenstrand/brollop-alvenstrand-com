@@ -1,5 +1,5 @@
 <mat-tab-group class="full-height">
-  <mat-tab label="Tid och plats">
+  <mat-tab label="Tid & Plats">
     <article>
       <section class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
         <h2>tid och plats</h2>
@@ -25,19 +25,17 @@
               <h2>26<br/>maj</h2>
             </span>
           </div>
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-6 infospace">
             <mat-list>
-              <h3 matSubHeader>Vigsel</h3>
+              <h3 matSubHeader>15:00 - Vigsel</h3>
               <mat-list-item>
-                <span matLine>15:00</span>
-                <span matLine>Skogaholms Trädgård, Skansen<button mat-icon-button color="accent"
-                                                                  (click)="place = 'skansen'"><mat-icon>place</mat-icon></button></span>
+                <button mat-button class="place-button" (click)="place = 'skansen'"><mat-icon color="accent">place</mat-icon>Skogaholms Köksträdgård</button>
               </mat-list-item>
+              <br/>
               <mat-divider></mat-divider>
-              <h3 matSubHeader>Middag</h3>
+              <h3 matSubHeader>18:00 - Middag & Fest</h3>
               <mat-list-item>
-                <span matLine>16:30</span>
-                <span matLine>Clustret, Gamla Stan<button mat-icon-button color="accent" (click)="place = 'clustret'"><mat-icon>place</mat-icon></button></span>
+                <button mat-button class="place-button" (click)="place = 'clustret'"><mat-icon color="accent">place</mat-icon>Clustret</button>
               </mat-list-item>
             </mat-list>
           </div>
@@ -45,7 +43,7 @@
       </section>
     </article>
   </mat-tab>
-  <mat-tab label="Mat och dryck">
+  <mat-tab label="Mat & Dryck">
     <article>
       <section class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
         <h2>mat och dryck</h2>
@@ -53,24 +51,36 @@
           <div class="col-xs-12 col-sm-6 showcase showcase-fooddrink">
             <mat-icon>restaurant</mat-icon>
           </div>
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-6 infospace">
             <mat-list>
               <h3 matSubHeader>Förrätt</h3>
               <mat-list-item>
-                <span matLine>Mat...</span>
-                <span matLine>Dryck...</span>
+                <span matLine>Mat</span>
+                <span matLine>Kommer senare...</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matLine>Dryck</span>
+                <span matLine>Kommer senare...</span>
               </mat-list-item>
               <mat-divider></mat-divider>
               <h3 matSubHeader>Huvudrätt</h3>
               <mat-list-item>
-                <span matLine>Mat...</span>
-                <span matLine>Dryck...</span>
+                <span matLine>Mat</span>
+                <span matLine>Kommer senare...</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matLine>Dryck</span>
+                <span matLine>Kommer senare...</span>
               </mat-list-item>
               <mat-divider></mat-divider>
               <h3 matSubHeader>Bröllopstårta</h3>
               <mat-list-item>
-                <span matLine>Mat...</span>
-                <span matLine>Dryck...</span>
+                <span matLine>Mat</span>
+                <span matLine>Kommer senare...</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matLine>Dryck</span>
+                <span matLine>Kommer senare...</span>
               </mat-list-item>
             </mat-list>
           </div>
@@ -78,7 +88,7 @@
       </section>
     </article>
   </mat-tab>
-  <mat-tab label="Kontakta oss">
+  <mat-tab label="Kontakta Oss">
     <article class="full-height">
       <section class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
         <h2>kontakta oss</h2>
@@ -86,7 +96,7 @@
           <div class="col-xs-12 col-sm-6 showcase showcase-contacts">
             <mat-icon>question_answer</mat-icon>
           </div>
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-6 infospace">
             <mat-list class="contact-list">
               <h3 matSubHeader>Daniel</h3>
               <mat-list-item>
@@ -129,7 +139,7 @@
       </section>
     </article>
   </mat-tab>
-  <mat-tab label="Mitt svar">
+  <mat-tab label="Mitt Svar">
     <article class="full-height">
       <section class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
         <h2>mitt svar</h2>
@@ -137,7 +147,7 @@
           <div class="col-xs-12 col-sm-6 showcase showcase-answer">
             <mat-icon>drafts</mat-icon>
           </div>
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-6 infospace">
             <mat-list *ngIf="attr">
               <h3 matSubHeader>Uppgifter</h3>
               <mat-list-item>

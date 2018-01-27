@@ -24,9 +24,11 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "@angular/service-worker": "^5.2.2",
     "amazon-cognito-identity-js": "^1.31.0",
     "core-js": "^2.4.1",
     "flexboxgrid-sass": "^8.0.5",
+    "instafeed": "^2.0.0",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },
