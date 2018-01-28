@@ -7,33 +7,6 @@ h2 {
   margin: 0.25em 0;
 }
 
-.map-section {
-  margin: 2em 0;
-  agm-map {
-    height: 250px;
-    &::ng-deep .agm-map-container-inner {
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
-      border-radius: 4px;
-    }
-  }
-}
-
-.contact-list {
-    a, a:visited, a:focus, a:hover {
-      text-decoration: none;
-      color: black;
-    }
-    mat-icon {
-      margin-right: 0.5em;
-    }
-}
-
-.infospace {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .showcase {
   h2 {
     animation: none;

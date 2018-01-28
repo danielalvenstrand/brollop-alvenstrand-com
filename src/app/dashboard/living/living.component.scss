@@ -1,0 +1,38 @@
+@import '../../../theme.scss';
+@import '../../../styles.scss';
+
+h2 {
+  text-align: center;
+  @include floatingAnimation(1, 1, -1.25%, 1.25%, -4.25deg, -4deg, 2.5s);
+  margin: 0.25em 0;
+}
+
+.showcase {
+  h2 {
+    animation: none;
+  }
+  mat-icon {
+    transition: transform 0.3s ease-in-out;
+    + span {
+      transition: transform 0.3s ease-in-out;
+      pointer-events: none;
+      h2 {
+        user-select: none;
+      }
+    }
+    &:hover {
+      transform: scale(1.025) rotate(-0.25deg);
+      + span {
+        transform: scale(1.05) rotate(2deg) translateX(-95%) translateY(2.5%);
+      }
+    }
+  }
+  &.showcase-living {
+    mat-icon {
+      color: mat-color($brollop-color-green, 500);
+      background: -webkit-linear-gradient(mat-color($brollop-color-mauve, 500), mat-color($brollop-color-mauve, 700));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}

@@ -55,6 +55,33 @@ html, body {
   background: transparent;  /* optional: just make scrollbar invisible */
 }
 
+.infospace {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.map-section {
+  margin: 2em 0;
+  agm-map {
+    height: 250px;
+    &::ng-deep .agm-map-container-inner {
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+      border-radius: 4px;
+    }
+  }
+}
+
+.infospace, .map-section {
+  a, a:visited, a:focus, a:hover {
+    text-decoration: none;
+    color: black;
+  }
+  mat-icon {
+    margin-right: 0.5em;
+  }
+}
+
 .page, .page-sidenav-content {
   display: flex;
   flex-direction: column;

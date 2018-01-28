@@ -21,7 +21,7 @@ export class PhotosComponent implements OnInit {
       tagName: this.tag,
       accessToken: environment.INSTA.ACCESS_TOKEN,
     });
-    this.feed.run();
+    //this.feed.run();
   }
 
 }

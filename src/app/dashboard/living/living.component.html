@@ -1,3 +1,55 @@
-<p>
-  Under konstruktion...
-</p>
+<article class="full-height">
+  <section class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+    <h2>boende</h2>
+    <section class="row map-section" *ngIf="place">
+      <div class="col-xs-12 col-sm-6">
+        <agm-map [latitude]="coordinates[place].lat" [longitude]="coordinates[place].lng" [zoom]="coordinates[place].zoom">
+          <agm-marker [latitude]="coordinates[place].lat" [longitude]="coordinates[place].lng" [label]="coordinates[place].label"></agm-marker>
+          <agm-marker [latitude]="coordinates['skansen'].lat" [longitude]="coordinates['skansen'].lng" [label]="coordinates['skansen'].label"></agm-marker>
+          <agm-marker [latitude]="coordinates['clustret'].lat" [longitude]="coordinates['clustret'].lng" [label]="coordinates['clustret'].label"></agm-marker>
+        </agm-map>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <mat-list>
+          <h3 matSubHeader>{{coordinates[place].address}}</h3>
+          <mat-list-item *ngFor="let info of coordinates[place].info">
+            {{info}}
+          </mat-list-item>
+          <mat-list-item>
+            <a href="{{coordinates[place].link}}" target="_blank">
+              <button mat-button>
+                <mat-icon color="primary">date_range</mat-icon>
+                Läs mer och boka
+              </button>
+            </a>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </section>
+    <section class="row">
+      <div class="col-xs-12 col-sm-6 showcase showcase-living">
+        <mat-icon>airline_seat_individual_suite</mat-icon>
+      </div>
+      <div class="col-xs-12 col-sm-6 infospace">
+        <mat-list>
+          <h3 matSubHeader>Förslag på boende</h3>
+          <mat-list-item>
+            <button mat-button class="place-button" (click)="place = 'birger_jarl'"><mat-icon color="accent">place</mat-icon>M/S Birger Jarl</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button mat-button class="place-button" (click)="place = 'hilton'"><mat-icon color="accent">place</mat-icon>Hilton, Slussen</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button mat-button class="place-button" (click)="place = 'alvsjo'"><mat-icon color="accent">place</mat-icon>Hotell Älvsjö</button>
+          </mat-list-item>
+          <br />
+          <mat-divider></mat-divider>
+          <br/>
+          <mat-list-item>
+            <em>För ytterligare förslag, besök <a href="https://www.booking.com/">Booking.com</a>, <a href="https://www.hotels.com/">Hotels.com</a>, <a href="https://www.trivago.se/">Trivago</a> eller någon annan bokningssajt.</em>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </section>
+  </section>
+</article>

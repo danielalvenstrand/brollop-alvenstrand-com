@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
 
   menu = [
       { link: '/dashboard/info', text: 'Information', icon: 'info' },
-      { link: '/dashboard/dress-code', text: 'Klädkod', icon: 'accessibility' },
+      { link: '/dashboard/dress-code', text: 'Dress Code', icon: 'accessibility' },
       { link: '/dashboard/living', text: 'Boende', icon: 'airline_seat_individual_suite' },
       { link: '/dashboard/photos', text: 'Bilder', icon: 'photo_camera' }
   ]
