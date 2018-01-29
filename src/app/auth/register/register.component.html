@@ -14,14 +14,14 @@
       </div>
       <div class="row center-xs">
         <mat-form-field class="col-xs-12 col-sm-10 col-md-7">
-            <mat-select placeholder="Jag dricker alhohol" formControlName="alcohol" required>
+            <mat-select placeholder="Jag dricker alkohol" formControlName="alcohol" required>
               <mat-option *ngFor="let svar of ['Ja','Nej']" [value]="svar">{{ svar }}</mat-option>
             </mat-select>
         </mat-form-field>
       </div>
       <div class="row center-xs">
         <mat-form-field class="col-xs-12 col-sm-10 col-md-7">
-          <mat-select placeholder="Jag är vegeterian" formControlName="vegetarian" required>
+          <mat-select placeholder="Jag är vegetarian" formControlName="vegetarian" required>
             <mat-option *ngFor="let svar of ['Ja', 'Ja, men äter fisk', 'Nej']" [value]="svar">{{ svar }}</mat-option>
           </mat-select>
         </mat-form-field>
