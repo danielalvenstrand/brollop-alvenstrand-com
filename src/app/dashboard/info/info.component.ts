@@ -1,5 +1,6 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
 import {UserAttributes, UserService} from '../../services/user.service';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'da-info',
@@ -10,6 +11,7 @@ export class InfoComponent implements OnInit {
   @HostBinding() class = 'full-height';
 
   attr: UserAttributes;
+  guestEmail = environment.guest.email;
 
   coordinates = {
     skansen: {

@@ -15,4 +15,8 @@
   <div class="row center-xs">
     <button mat-raised-button color="primary" [disabled]="!credentials.valid">Logga in</button>
   </div>
+  <br />
+  <div class="row center-xs">
+    <button mat-button color="primary" type="button" (click)="loginGuest()">Logga in som gäst</button>
+  </div>
 </form>

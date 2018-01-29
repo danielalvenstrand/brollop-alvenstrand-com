@@ -7,6 +7,10 @@ export const environment = {
   production: false,
   under_construction: false,
   protection_code: '929912',
+  guest: {
+    email: 'daniel@alvenstrand.com',
+    password: '!QAZ2wsx'
+  },
   GM_API_KEY: 'AIzaSyBBP_u5ErisRuith55SW9qvMdmMonET1H0',
   INSTA: {
     CLIENT_ID: '89f6fc0a2bea449181f8559b6ded5c7c',

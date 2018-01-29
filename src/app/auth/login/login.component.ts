@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import {MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'da-login',
@@ -26,6 +27,14 @@ export class LoginComponent implements OnInit {
       .catch(err => this.snackbar.open(
         err, null, {})
     );
+  }
+
+  loginGuest() {
+    this.auth.signIn(environment.guest.email, environment.guest.password)
+      .then(result => result && this.router.navigate(['/dashboard']))
+      .catch(err => this.snackbar.open(
+        err, null, {})
+      );
   }
 
 }
