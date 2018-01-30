@@ -28,10 +28,10 @@ h2 {
       }
     }
   }
-  &.showcase-dresscode {
+  &.showcase-contacts {
     mat-icon {
-      color: mat-color($brollop-color-green, A500);
-      background: -webkit-linear-gradient(mat-color($brollop-color-green, A500), mat-color($brollop-color-mauve, A500));
+      color: mat-color($brollop-color-green, 100);
+      background: -webkit-linear-gradient(mat-color($brollop-color-green, 100), mat-color($brollop-color-green, A500));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }

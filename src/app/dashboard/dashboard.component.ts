@@ -20,9 +20,9 @@ export class DashboardComponent implements OnInit {
 
   menu = [
       { link: '/dashboard/info', text: 'Information', icon: 'info' },
-      { link: '/dashboard/dress-code', text: 'Dress Code', icon: 'accessibility' },
-      { link: '/dashboard/living', text: 'Boende', icon: 'airline_seat_individual_suite' },
-      { link: '/dashboard/photos', text: 'Bilder', icon: 'photo_camera' }
+      { link: '/dashboard/photos', text: 'Bilder', icon: 'photo_camera' },
+      { link: '/dashboard/answer', text: 'Mitt Svar', icon: 'drafts' },
+      { link: '/dashboard/contact', text: 'Kontakta Oss', icon: 'question_answer' }
   ]
 
   constructor(public user: UserService, private auth: AuthService, private _router: Router, private _route: ActivatedRoute) {

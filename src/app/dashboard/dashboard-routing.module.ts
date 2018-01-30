@@ -4,8 +4,8 @@ import {AuthGuard} from '../auth.guard';
 import {DashboardComponent} from './dashboard.component';
 import {PhotosComponent} from './photos/photos.component';
 import {InfoComponent} from './info/info.component';
-import {DressCodeComponent} from './dress-code/dress-code.component';
-import {LivingComponent} from './living/living.component';
+import {ContactComponent} from './contact/contact.component';
+import {AnswerComponent} from './answer/answer.component';
 
 const routes: Routes = [
   {
@@ -15,8 +15,8 @@ const routes: Routes = [
     children: [
       {path: '', pathMatch: 'full', redirectTo: '/dashboard/info'},
       {path: 'info', component: InfoComponent},
-      {path: 'dress-code', component: DressCodeComponent},
-      {path: 'living', component: LivingComponent},
+      {path: 'contact', component: ContactComponent},
+      {path: 'answer', component: AnswerComponent},
       {path: 'photos', component: PhotosComponent}
     ]
   }

@@ -27,14 +27,6 @@ h2 {
       }
     }
   }
-  &.showcase-answer {
-    mat-icon {
-      color: mat-color($brollop-color-green, 500);
-      background: -webkit-linear-gradient(mat-color($brollop-color-green, 500), mat-color($brollop-color-green, 700));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  }
   &.showcase-timeplace {
     @media ($mat-xsmall) {
       margin-top: -10vw;
@@ -82,18 +74,34 @@ h2 {
       }
     }
   }
-  &.showcase-contacts {
-    mat-icon {
-      color: mat-color($brollop-color-green, 100);
-      background: -webkit-linear-gradient(mat-color($brollop-color-green, 100), mat-color($brollop-color-green, A500));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  }
   &.showcase-fooddrink {
     mat-icon {
       color: mat-color($brollop-color-mauve, 100);
       background: -webkit-linear-gradient(mat-color($brollop-color-mauve, 100), mat-color($brollop-color-mauve, A500));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  &.showcase-dresscode {
+    mat-icon {
+      color: mat-color($brollop-color-green, 500);
+      background: -webkit-linear-gradient(mat-color($brollop-color-green, 100), mat-color($brollop-color-mauve, 500));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  &.showcase-gifts {
+    mat-icon {
+      color: mat-color($brollop-color-green, A500);
+      background: -webkit-linear-gradient(mat-color($brollop-color-green, A500), mat-color($brollop-color-mauve, A500));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  &.showcase-living {
+    mat-icon {
+      color: mat-color($brollop-color-mauve, 100);
+      background: -webkit-linear-gradient(mat-color($brollop-color-mauve, 100), mat-color($brollop-color-green, 700));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }

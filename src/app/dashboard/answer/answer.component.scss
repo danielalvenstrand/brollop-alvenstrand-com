@@ -7,6 +7,7 @@ h2 {
   margin: 0.25em 0;
 }
 
+
 .showcase {
   h2 {
     animation: none;
@@ -27,10 +28,10 @@ h2 {
       }
     }
   }
-  &.showcase-living {
+  &.showcase-answer {
     mat-icon {
       color: mat-color($brollop-color-green, 500);
-      background: -webkit-linear-gradient(mat-color($brollop-color-mauve, 500), mat-color($brollop-color-mauve, 700));
+      background: -webkit-linear-gradient(mat-color($brollop-color-green, 500), mat-color($brollop-color-green, 700));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
