@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {AuthRoutingModule} from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import {RegisterComponent, RegisterConfirmedDialogComponent} from './register/register.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import {AppMatModule} from '../app.mat.module';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -16,6 +16,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
     AppMatModule
   ],
-  declarations: [AuthComponent, LoginComponent, RegisterComponent, ForgotComponent]
+  declarations: [AuthComponent, LoginComponent, RegisterComponent, ForgotComponent, RegisterConfirmedDialogComponent],
+  entryComponents: [RegisterConfirmedDialogComponent]
 })
 export class AuthModule { }

@@ -1,7 +1,7 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Inject, OnInit, Output, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
-import {MatHorizontalStepper, MatSnackBar} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef, MatHorizontalStepper, MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
 
 @Component({
@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
       alcohol: new FormControl('', [Validators.required]),
       vegetarian: new FormControl('', [Validators.required]),
       message: new FormControl(''),
-      password: new FormControl('', [Validators.required])
+      password: new FormControl('', [Validators.required, Validators.minLength(6)])
     }
   );
 
@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
     }),
   });
 
-  constructor(private auth: AuthService, public snackbar: MatSnackBar, public router: Router) { }
+  constructor(private auth: AuthService, public snackbar: MatSnackBar, public router: Router, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.stepper.selectionChange.subscribe(() => this.resize.emit());
@@ -53,15 +53,50 @@ export class RegisterComponent implements OnInit {
     this.auth.register(credentials)
       .then(() => {
         this.snackbar.open(
-          'Ett verifieringsmail har skickats till din email! Klicka på länken i mailet för att slutföra anmälningen.',
+          'Vi har mottagit ditt svar! Ett verifieringsmail har skickats till din email. Klicka på länken i mailet för att kunna logga in och se ditt svar.',
           null, {
             duration: 5000
           });
-        this.router.navigate(['signin']);
+        this.dialog.open(RegisterConfirmedDialogComponent, {
+          maxWidth: '500px',
+          width: '100%',
+          data: {}
+        }).afterClosed().subscribe(() => this.router.navigate(['signin']));
       })
-      .catch(err => this.snackbar.open(
-        err, null, {})
+      .catch(err => {
+        this.snackbar.open('Ett fel har uppstått! Försök igen eller kontakta brudparet.', null, {});
+        console.error(err);
+        }
       );
   }
 
+}
+
+@Component({
+  selector: 'da-register-confirmed-dialog',
+  template: `    
+    <mat-dialog-content>
+      <h2>tack</h2>
+      <h3>Vi har mottagit ditt svar!</h3>
+      <p>Ett verifieringsmail har skickats till din email. Klicka på länken i mailet för att kunna logga in och se ditt svar.</p>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button [mat-dialog-close]>OK</button>
+    </mat-dialog-actions>
+  `,
+  styles: [`
+    h2, h3 {text-align: center;}
+    p {font-family: 'Comfortaa', roboto, monospace;}
+    mat-dialog-actions {display: flex; justify-content: center;}
+  `]
+})
+export class RegisterConfirmedDialogComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<RegisterConfirmedDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {}
+
+    onNoClick(): void {
+      this.dialogRef.close();
+    }
 }

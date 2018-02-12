@@ -8,7 +8,7 @@ export const environment = {
   under_construction: false,
   protection_code: '929912',
   guest: {
-    email: 'daniel@alvenstrand.com',
+    email: 'brollop@alvenstrand.com',
     password: '!QAZ2wsx'
   },
   GM_API_KEY: 'AIzaSyBBP_u5ErisRuith55SW9qvMdmMonET1H0',

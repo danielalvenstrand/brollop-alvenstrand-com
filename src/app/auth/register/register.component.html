@@ -51,7 +51,7 @@
     </mat-step>
     <mat-step [completed]="stepGroup.get([2]).valid"  icon="send" label="Skicka">
       <div class="row">
-        <h3 class="col-xs-12">Skapa ett konto för att slutföra din anmälan</h3>
+        <h3 class="col-xs-12">Bekräfta ditt svar genom att registrera din email</h3>
       </div>
       <div class="row center-xs">
         <mat-form-field class="col-xs-12 col-sm-10 col-md-7">
@@ -60,7 +60,7 @@
       </div>
       <div class="row center-xs">
         <mat-form-field class="col-xs-12 col-sm-10 col-md-7">
-          <input matInput type="password" formControlName="password" placeholder="Lösenord" required minlength="6">
+          <input matInput type="password" formControlName="password" placeholder="Lösenord (minst 6 tecken)" required min="6">
         </mat-form-field>
       </div>
       <div>
